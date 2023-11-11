@@ -38,10 +38,11 @@ app.get('/crawl',  async (req, res, next) =>{
             const filteredHrefs = hrefs.filter(
                 (href) => href.startsWith(website) && registry[href] === undefined
                 );
-                
+
             const uniqueHrefs = [...new Set(filteredHrefs)]
             queue.push(...uniqueHrefs)
-            queue = [...new Set[queue]]
+            //queue = [...new Set[queue]]
+            queue = Array.from(new Set(queue))
 
             await page.close();
         }
